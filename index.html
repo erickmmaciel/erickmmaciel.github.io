@@ -362,6 +362,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
+<script>
+  // Push 'lead' event to dataLayer on any WhatsApp button click (event delegation)
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (!link) return;
+    var section = link.closest('section');
+    var location = section ? (section.id || 'unknown') : 'masthead';
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead',
+      lead_source: 'whatsapp',
+      lead_destination: link.href.replace(/^https?:\/\/wa\.me\//, '').split('?')[0],
+      button_location: location,
+      button_text: (link.innerText || '').trim()
+    });
+  });
+</script>
+
 <footer class="colophon">
   <div class="container">
     <div class="colophon-grid">
