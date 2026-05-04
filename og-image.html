@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>OG Image · 2M Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; background: #F2EDE3; -webkit-font-smoothing: antialiased; }
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; opacity: 0.45; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.07 0 0 0 0 0.05 0 0 0 0 0.03 0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .frame { position: absolute; inset: 50px; border: 1px solid #0E0B07; padding: 60px 70px; display: flex; flex-direction: column; justify-content: space-between; }
+
+  .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .brand {
+    font-family: 'Instrument Serif', serif; font-size: 36px; letter-spacing: -0.015em; color: #0E0B07;
+  }
+  .brand em { color: #B8451F; font-style: italic; }
+  .stamp {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: #B8451F; text-align: right;
+  }
+
+  .headline {
+    font-family: 'Instrument Serif', serif; font-size: 84px; line-height: 1.0;
+    letter-spacing: -0.025em; color: #0E0B07; font-weight: 400;
+  }
+  .headline em { color: #B8451F; font-style: italic; }
+  .lead {
+    font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px;
+    line-height: 1.4; color: #5C544A; margin-top: 24px; max-width: 800px;
+  }
+
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 24px; border-top: 1px solid #C9C2B3; }
+  .url { font-family: 'JetBrains Mono', monospace; font-size: 16px; letter-spacing: 0.08em; color: #0E0B07; font-weight: 500; }
+  .channels { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #5C544A; text-align: right; }
+</style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="brand"><em>2M</em> Marketing</div>
+      <div class="stamp">§ Performance &amp; Receita</div>
+    </div>
+
+    <div>
+      <div class="headline">
+        Mídia paga <em>conectada</em><br>
+        ao seu financeiro.
+      </div>
+      <div class="lead">
+        Diagnóstico, consultoria e assessoria para operações onde<br>
+        cada real investido precisa aparecer no caixa.
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="url">erick2m.com</div>
+      <div class="channels">Meta · Google · LinkedIn Ads</div>
+    </div>
+  </div>
+</body>
+</html>
