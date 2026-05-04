@@ -110,6 +110,7 @@ em { font-style: italic; }
   letter-spacing: -0.015em;
   line-height: 1;
 }
+.brand-mark em { color: var(--accent); font-style: italic; letter-spacing: -0.02em; }
 .brand-rule {
   display: inline-block;
   width: 1px;
