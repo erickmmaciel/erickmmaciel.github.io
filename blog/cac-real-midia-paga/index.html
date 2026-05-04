@@ -29,7 +29,48 @@
   "author": { "@type": "Person", "name": "Erick Maciel", "url": "https://erick2m.com" },
   "publisher": { "@type": "Organization", "name": "2M Marketing", "url": "https://erick2m.com" },
   "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
   "url": "https://erick2m.com/blog/cac-real-midia-paga/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como calcular o CAC real em mídia paga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O CAC real (custo de aquisição de clientes) em mídia paga é calculado dividindo o total gasto em mídia no período pelo número de clientes cujo primeiro contato foi via anúncio, usando dados do CRM — não do Ads Manager. Em B2B com ciclo longo, use análise de coorte: relacione o gasto do mês de entrada do lead com os clientes fechados originados naquele mês, independente de quando fecharam. Isso evita a distorção de comparar gasto atual com receita de leads que entraram meses atrás."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que o CAC do Ads Manager é diferente do CAC real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Ads Manager calcula o CAC com base no seu próprio modelo de atribuição, que inclui janelas de view-through e click-through. Se o mesmo cliente viu anúncios em Meta, Google e LinkedIn antes de comprar, todas as três plataformas contam a conversão — gerando sobreposição de atribuição. Resultado: a soma das conversões reportadas pelas plataformas é maior do que o total real de clientes fechados, tornando o CAC reportado sistematicamente menor do que o real."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é análise de coorte para cálculo de CAC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Análise de coorte para CAC significa agrupar leads pelo mês em que entraram no funil e calcular o CAC desse grupo específico — relacionando o gasto do mês de entrada com os clientes que esse grupo gerou ao longo do tempo. Em B2B com ciclo de 90 dias, dividir gasto de outubro pelo número de clientes fechados em outubro é incorreto: os clientes de outubro provavelmente vieram de leads que entraram em julho. A coorte corrige essa distorção temporal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual deve ser a relação LTV:CAC em mídia paga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para operações saudáveis em B2B, o LTV (lifetime value) deve ser pelo menos 3 vezes o CAC. Em SaaS com contratos anuais recorrentes, a relação de 5x a 8x é comum. Em serviços com alta recorrência e expansão de receita, pode chegar a 10x. Abaixo de 3:1, a operação tem margem estreita e cada churn antecipado corrói o resultado. A relação LTV:CAC é o indicador que determina se o orçamento de mídia pode ser escalado ou não."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -140,6 +181,20 @@
         <p>Uma agência que reporta CAC de R$ 800 por Ads Manager vai ter dificuldade em adotar um modelo que mostra R$ 3.000. O número do Ads Manager é o que permite continuar sendo pago e renovar o contrato.</p>
 
         <p>Para quem está do lado do cliente, a solução é simples: exigir que os relatórios incluam sempre o CAC calculado a partir do CRM, com metodologia explícita. O CAC da plataforma pode aparecer como referência interna — nunca como a métrica de sucesso da operação.</p>
+
+        <h2>Perguntas frequentes sobre <em>CAC em mídia paga</em></h2>
+
+        <h3>Como calcular o CAC real em mídia paga?</h3>
+        <p>Divida o total gasto em mídia no mês de entrada do lead pelo número de clientes que esse grupo de leads gerou — independente de quando fecharam. Esse cálculo por coorte é o único que funciona em B2B com ciclo longo. Não divida gasto atual por clientes fechados no mesmo mês: são populações diferentes.</p>
+
+        <h3>Por que o CAC do Ads Manager é menor do que o real?</h3>
+        <p>Porque cada plataforma usa seu próprio modelo de atribuição com janelas de view-through e click-through. Se o mesmo cliente viu anúncios no Meta, Google e LinkedIn antes de comprar, as três plataformas contam a conversão. A soma das conversões reportadas supera o total real de clientes — tornando todos os CACs reportados sistematicamente menores do que o verdadeiro.</p>
+
+        <h3>O que é análise de coorte para CAC?</h3>
+        <p>Agrupar leads pelo mês em que entraram e calcular o CAC desse grupo ao longo do tempo. Em B2B com ciclo de 90 dias, os clientes fechados em outubro vieram de leads que entraram em julho. Comparar gasto de outubro com fechamentos de outubro mistura dois grupos diferentes. A coorte corrige essa distorção temporal.</p>
+
+        <h3>Qual deve ser a relação LTV:CAC?</h3>
+        <p>Em B2B, LTV de pelo menos 3x o CAC é o mínimo para uma operação saudável. Em SaaS com contratos anuais, 5x a 8x é comum. Abaixo de 3:1, cada churn antecipado corrói rapidamente a margem. Essa relação é o principal indicador para decidir se o budget de mídia pode — ou deve — ser escalado.</p>
 
         <div class="article-cta">
           <p class="article-cta-label">Próximo passo</p>
