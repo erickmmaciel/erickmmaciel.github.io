@@ -301,17 +301,11 @@
   align-items: flex-start;
   gap: 20px;
 }
-.author-initials {
+.author-avatar {
   width: 44px;
   height: 44px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
 }
 .author-name {
