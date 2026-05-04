@@ -324,6 +324,7 @@ em { font-style: italic; }
   border-bottom: 1px solid var(--ink);
   animation: fadeUp 1s 0.7s cubic-bezier(.2,.8,.2,1) backwards;
 }
+.ticker-3 { grid-template-columns: repeat(3, 1fr); }
 .ticker-cell {
   padding: 28px 28px 24px;
   border-right: 1px solid var(--rule);
