@@ -814,6 +814,27 @@ em { font-style: italic; }
   color: var(--accent-soft);
 }
 
+/* ----- Credentials (Google Partner badge) ----- */
+.credential {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(242, 237, 227, 0.18);
+}
+.credential .aside-stamp { margin-bottom: 14px; }
+.partner-badge {
+  display: inline-block;
+  background: var(--paper-glow);
+  padding: 14px 18px;
+  border-radius: 4px;
+  transition: transform 0.22s cubic-bezier(.2,.8,.2,1);
+}
+.partner-badge:hover { transform: translateY(-1px); }
+.partner-badge img {
+  display: block;
+  width: 140px;
+  height: auto;
+}
+
 /* ============================================
    Colophon (footer)
    ============================================ */
