@@ -833,6 +833,29 @@ em { font-style: italic; }
   display: block;
   width: 140px;
   height: auto;
+  pointer-events: none; /* let the anchor handle clicks reliably */
+}
+.partner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  border-bottom: 1px solid rgba(232, 201, 184, 0.3);
+  padding-bottom: 2px;
+  transition: all 0.18s;
+}
+.partner-link:hover {
+  color: var(--paper-glow);
+  border-color: var(--paper-glow);
+}
+.partner-link .arrow-small {
+  font-family: var(--serif);
+  font-size: 13px;
 }
 
 /* ============================================
