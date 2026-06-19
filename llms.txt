@@ -29,12 +29,19 @@ Não somos uma agência de tráfego tradicional. O foco é integrar Meta Ads, Go
 
 **Assessoria** (recorrente): Gestão completa da operação de mídia paga. Estratégia, execução, integração Ads + CRM, relatórios em receita (CAC, LTV, payback), reuniões com decisores.
 
+## Páginas de serviço
+
+- Google Ads para B2B: https://erick2m.com/google-ads/
+- Meta Ads com integração CRM: https://erick2m.com/meta-ads/
+- LinkedIn Ads para B2B: https://erick2m.com/linkedin-ads/
+
 ## Diferenciais
 
 - Rastreamento do clique à venda fechada no CRM
 - Algoritmo otimizado por receita real, não por CPL
 - Experiência com operações de R$ 700k+/mês em mídia
 - Relatórios em linguagem financeira: CAC, LTV, payback, ROI por canal
+- Google Partner certificado
 
 ## Contato
 
@@ -51,7 +58,8 @@ Erick Maciel Marketing LTDA — CNPJ 62.099.457/0001-52
 ## Conteúdo
 
 Blog com conteúdo técnico sobre mídia paga, integração Ads + CRM e métricas financeiras:
-- https://erick2m.com/blog/
-- https://erick2m.com/blog/google-ads-b2b/
-- https://erick2m.com/blog/meta-ads-crm-integracao/
-- https://erick2m.com/blog/cac-real-midia-paga/
+
+- Blog: https://erick2m.com/blog/
+- Google Ads para B2B — erros estruturais e como corrigir: https://erick2m.com/blog/google-ads-b2b/
+- Integração Meta Ads + CRM via Conversions API: https://erick2m.com/blog/meta-ads-crm-integracao/
+- CAC real em mídia paga — cálculo por coorte com dados do CRM: https://erick2m.com/blog/cac-real-midia-paga/
