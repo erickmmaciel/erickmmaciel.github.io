@@ -481,18 +481,19 @@ em { font-style: italic; }
    ============================================ */
 .services {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0;
   border-top: 1px solid var(--ink);
 }
 .service {
-  padding: 40px 32px 40px 0;
+  padding: 48px 48px 48px 0;
   border-right: 1px solid var(--rule);
   display: flex;
   flex-direction: column;
 }
-.service:nth-child(n+2) { padding-left: 32px; }
+.service:nth-child(n+2) { padding-left: 48px; }
 .service:last-child { border-right: none; padding-right: 0; }
+.service-product { background: var(--paper-warm); padding-left: 48px; padding-right: 48px; }
 
 .service-meta {
   display: flex;
