@@ -285,57 +285,6 @@ em { font-style: italic; }
 .btn-ghost-light:hover { border-color: var(--paper); background: rgba(242, 237, 227, 0.06); }
 
 /* ============================================
-   Hero ticker
-   ============================================ */
-.ticker {
-  margin-top: clamp(60px, 8vw, 100px);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  animation: fadeUp 1s 0.7s cubic-bezier(.2,.8,.2,1) backwards;
-}
-.ticker-3 { grid-template-columns: repeat(3, 1fr); }
-.ticker-cell {
-  padding: 28px 28px 24px;
-  border-right: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  position: relative;
-}
-.ticker-cell:last-child { border-right: none; }
-.ticker-num {
-  font-family: var(--serif);
-  font-size: clamp(32px, 3.6vw, 46px);
-  line-height: 1;
-  letter-spacing: -0.025em;
-  font-feature-settings: "tnum";
-}
-.ticker-num .sup {
-  font-size: 0.55em;
-  vertical-align: super;
-  color: var(--accent);
-  letter-spacing: 0;
-  margin-left: 2px;
-}
-.ticker-mod {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 8px;
-}
-.ticker-label {
-  font-size: 13px;
-  color: var(--ink-muted);
-  margin-top: auto;
-  padding-top: 8px;
-  font-weight: 500;
-}
-
-/* ============================================
    Sections (shared)
    ============================================ */
 .section {
