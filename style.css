@@ -350,6 +350,10 @@ em { font-style: italic; }
 }
 .fit-col-yes { border-right: 1px solid var(--rule); padding-right: 32px; }
 .fit-col-no { padding-left: 32px; }
+.fit-table-single { grid-template-columns: 1fr; }
+.fit-table-single .fit-col { columns: 2; column-gap: 48px; padding-right: 0; border-right: none; }
+.fit-table-single .fit-list li { break-inside: avoid; }
+.fit-table-single .fit-list li:first-child { border-top: none; margin-top: 0; }
 .fit-h {
   display: flex;
   align-items: baseline;
