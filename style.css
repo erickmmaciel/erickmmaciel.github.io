@@ -92,9 +92,9 @@ em { font-style: italic; }
   background: rgba(242, 237, 227, 0.92);
 }
 .masthead-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 32px;
   height: 76px;
 }
@@ -958,8 +958,7 @@ em { font-style: italic; }
    Responsive
    ============================================ */
 @media (max-width: 980px) {
-  .masthead-meta { display: none; }
-  .masthead-inner { grid-template-columns: 1fr auto; height: 64px; }
+  .masthead-inner { height: 64px; }
   .brand-tagline { display: none; }
 
   .hero-grid { gap: 24px; }
