@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N7KQK6L');</script>
+<!-- End Google Tag Manager -->
+<title>RD Station + Meta Ads: integração de ponta a ponta — 2M Marketing</title>
+<meta name="description" content="Como integrar RD Station ao Meta Ads de verdade: limites da integração nativa, a ponte via Make e como enviar oportunidade ganha para a Conversions API.">
+<link rel="canonical" href="https://erick2m.com/blog/rd-station-meta-ads/">
+<meta property="og:title" content="RD Station + Meta Ads: integração completa de ponta a ponta">
+<meta property="og:description" content="Os limites da integração nativa, a ponte via Make e como enviar oportunidade ganha do RD Station para a CAPI do Meta.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://erick2m.com/blog/rd-station-meta-ads/">
+<meta property="og:image" content="https://erick2m.com/og-image.png">
+<meta property="article:published_time" content="2026-06-18">
+<meta property="article:author" content="Erick Maciel">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RD Station + Meta Ads: integração completa de ponta a ponta">
+<meta name="twitter:description" content="Limites da integração nativa, ponte via Make e envio de oportunidade ganha para a CAPI do Meta.">
+<meta name="twitter:image" content="https://erick2m.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RD Station + Meta Ads: integração completa de ponta a ponta",
+  "description": "Como integrar RD Station ao Meta Ads: limites da integração nativa, ponte via Make e envio de oportunidade ganha para a Conversions API.",
+  "author": { "@type": "Person", "name": "Erick Maciel", "url": "https://erick2m.com" },
+  "publisher": { "@type": "Organization", "name": "2M Marketing", "url": "https://erick2m.com" },
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "url": "https://erick2m.com/blog/rd-station-meta-ads/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://erick2m.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://erick2m.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "RD Station + Meta Ads", "item": "https://erick2m.com/blog/rd-station-meta-ads/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "A integração nativa do RD Station com o Meta serve para otimização por venda?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não completamente. A integração nativa do RD Station com o Meta é voltada principalmente para sincronizar públicos e capturar leads de formulários (Lead Ads), não para enviar eventos de venda fechada de volta ao Meta via Conversions API. Para otimizar o algoritmo por oportunidade ganha — que é o que muda a qualidade da mídia — você precisa de uma automação que dispare um webhook para a CAPI quando a oportunidade muda de estágio, geralmente usando uma ferramenta intermediária como o Make."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que usar o Make entre o RD Station e o Meta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O RD Station consegue disparar webhooks nas automações, mas tem controle limitado sobre o formato do payload e sobre o tratamento dos dados — como fazer o hash SHA256 do email e do telefone exigido pela Conversions API. O Make (ex-Integromat) recebe o webhook do RD, normaliza e aplica o hash nos dados, monta o payload correto e envia para o endpoint da CAPI. Ele funciona como uma camada de tradução entre o formato do RD e o formato que o Meta espera."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual evento do RD Station devo enviar para o Meta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Idealmente, o evento de oportunidade marcada como ganha, que representa a venda real. Mas em operações com poucos fechamentos por mês, o volume pode ser insuficiente para o algoritmo aprender. Nesses casos, envie também um evento intermediário de maior frequência — como oportunidade qualificada (MQL para SQL) — como sinal, atribuindo um valor proporcional à probabilidade de fechamento daquele estágio. Isso dá ao Meta volume suficiente para otimizar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso guardar o fbc no RD Station?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, e é o passo que mais aumenta o match rate. Configure o formulário para capturar o parâmetro fbclid da URL (ou o cookie _fbc) num campo personalizado do lead no RD Station. Como a venda B2B fecha semanas ou meses depois do clique, o cookie do navegador já expirou quando você envia o evento de venda. Ter o fbc salvo no RD permite enviá-lo junto com o evento de oportunidade ganha, amarrando a venda ao clique original com muito mais precisão."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7KQK6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark"><em>2M</em> Marketing</span>
+      <span class="brand-rule"></span>
+      <span class="brand-tagline">Performance & Receita</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Navegação">
+      <a href="/#para-quem">Para quem</a>
+      <a href="/#sistema">Sistema</a>
+      <a href="/#servicos">Serviços</a>
+      <a href="/#cases">Cases</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-header">
+      <a href="/blog/" class="article-back">← Blog</a>
+      <div class="article-meta">
+        <span class="article-tag">Meta Ads · RD Station · Integração</span>
+        <span class="post-card-sep">·</span>
+        <span class="article-date">Junho 2026</span>
+      </div>
+      <h1 class="article-title">RD Station + Meta Ads: <em>integração de ponta a ponta</em></h1>
+      <p class="article-lead">O RD Station é o CRM mais usado no B2B brasileiro. A integração nativa dele com o Meta parece resolver — captura leads, sincroniza públicos. Mas ela para exatamente onde o valor começa: enviar a venda fechada de volta para o algoritmo. Este é o caminho para fechar esse loop.</p>
+    </div>
+
+    <div class="article-body">
+      <div class="article-content">
+
+        <p><strong>Integrar RD Station ao Meta Ads de ponta a ponta significa não só capturar leads, mas enviar de volta ao Meta o evento de oportunidade ganha via Conversions API — para o algoritmo otimizar por venda real. A integração nativa do RD cobre a captura; para o retorno da venda, usa-se uma automação com webhook, geralmente via Make como camada de tratamento.</strong> É o que transforma o RD Station de um repositório de leads num sensor de receita que alimenta a mídia.</p>
+
+        <p>Se você ainda otimiza campanhas de Meta por preenchimento de formulário, comece por entender <a href="/blog/meta-ads-crm-integracao/">por que o CPL engana no B2B</a>. Aqui, o foco é a mecânica específica do RD Station — que tem particularidades que o HubSpot não tem.</p>
+
+        <h2>O que a integração nativa <em>faz e não faz</em></h2>
+
+        <p>O RD Station tem uma integração oficial com o Meta que cobre bem duas coisas: <strong>receber leads de Lead Ads</strong> (formulários dentro do Facebook/Instagram) direto na base, e <strong>sincronizar listas de público</strong> para segmentação. Isso é útil e vale ativar.</p>
+
+        <p>O que ela <strong>não</strong> faz de forma robusta é o inverso: enviar eventos de fundo de funil — oportunidade qualificada, oportunidade ganha — de volta ao Meta via Conversions API. E é justamente esse fluxo de retorno que muda a qualidade da otimização, porque é ele que ensina o algoritmo a diferença entre um lead qualquer e um comprador.</p>
+
+        <div class="highlight-box">
+          <p><strong>Resumo da divisão de trabalho</strong></p>
+          <p>Integração nativa RD ↔ Meta: captura de Lead Ads + sincronização de públicos.<br>Automação + Make → CAPI: envio de oportunidade ganha/qualificada para otimização.</p>
+        </div>
+
+        <h2>A arquitetura que funciona</h2>
+
+        <p>O fluxo completo tem quatro pontos:</p>
+
+        <ol>
+          <li><strong>Captura do fbc no formulário.</strong> Todo formulário do site salva o <code>fbclid</code> da URL num campo personalizado do lead no RD. Sem isso, o match com o clique original despenca depois de alguns dias.</li>
+          <li><strong>Automação no RD Station.</strong> Uma automação dispara quando a oportunidade muda para "ganha" (ou "qualificada", conforme o volume). A ação é "Enviar webhook".</li>
+          <li><strong>Make como tradutor.</strong> O webhook chega ao Make, que normaliza os dados, aplica o hash SHA256 no email e no telefone, monta o payload no formato da CAPI e o envia.</li>
+          <li><strong>Conversions API do Meta.</strong> O evento chega ao Gerenciador de Eventos como "Purchase" (ou evento customizado) com fonte "Servidor", amarrado ao clique via fbc.</li>
+        </ol>
+
+        <p>Para a parte técnica do payload — endpoint, campos obrigatórios, hash, event_id — o detalhamento está em <a href="/blog/meta-capi-configuracao/">Meta CAPI: guia de configuração passo a passo</a>. Aqui vale focar no que é específico do RD.</p>
+
+        <h2>Por que o Make entra no meio</h2>
+
+        <p>O webhook do RD Station envia um JSON com os dados da oportunidade, mas você tem pouco controle sobre o formato — e a CAPI é exigente. O email precisa ir em SHA256 lowercase; o telefone em SHA256 no formato E.164 sem símbolos; o fbc em texto puro; o valor no lugar certo do <code>custom_data</code>. O RD sozinho não faz esse tratamento.</p>
+
+        <p>O Make recebe o webhook cru do RD e faz o trabalho de tradução: pega o email, normaliza, aplica o hash; pega o telefone, limpa, formata, aplica o hash; monta o objeto <code>user_data</code>; adiciona o valor da oportunidade em <code>custom_data</code>; e faz o POST para o endpoint da CAPI. É uma cenário de 4 ou 5 módulos, roda em segundos, e custa pouco no plano gratuito ou básico do Make.</p>
+
+        <blockquote>
+          <p>"Dá para fazer sem o Make, escrevendo uma função serverless. Mas para a maioria das operações, o Make resolve em uma tarde o que uma integração customizada levaria uma semana — e qualquer pessoa do time consegue dar manutenção depois."</p>
+        </blockquote>
+
+        <h2>O problema do volume no B2B</h2>
+
+        <p>O maior limitador não é técnico, é estatístico. O Meta precisa de cerca de 50 eventos de conversão por semana para estabilizar a otimização. Uma operação B2B que fecha 15 negócios por mês nunca chega lá enviando só "oportunidade ganha".</p>
+
+        <p>A saída é enviar um <strong>evento intermediário de maior frequência</strong> como sinal principal — normalmente a passagem de MQL para SQL, ou "oportunidade criada". Você atribui a esse evento um valor proporcional: se a taxa histórica de fechamento de uma oportunidade qualificada é 20% e o ticket médio é R$ 50 mil, o valor do evento é R$ 10 mil. Assim o algoritmo tem volume para aprender e ainda pondera por valor esperado.</p>
+
+        <h2>Ordem de implementação</h2>
+
+        <p>Não tente ligar tudo de uma vez. A sequência que reduz erro:</p>
+
+        <ol>
+          <li>Ativar a captura do fbc nos formulários e confirmar que chega no RD.</li>
+          <li>Montar o cenário no Make e testar com um disparo manual, checando o EMQ no Gerenciador de Eventos.</li>
+          <li>Ligar a automação do RD apontando para o evento intermediário (mais volume, valida o fluxo rápido).</li>
+          <li>Depois de estável, adicionar o evento de oportunidade ganha com o valor real.</li>
+          <li>Migrar a estratégia de lance do Meta para otimizar pelo evento de venda.</li>
+        </ol>
+
+        <h2>LGPD: o ponto que não pode passar</h2>
+
+        <p>Enviar dados de contato de leads para o Meta — mesmo em hash — é compartilhamento com terceiro para fins de publicidade. Isso precisa estar coberto na sua base legal e na política de privacidade, e o consentimento do titular precisa estar registrado. O RD Station tem campos de consentimento; garanta que o fluxo só envia dados de leads que consentiram. É requisito, não detalhe.</p>
+
+        <h2>Perguntas frequentes sobre <em>RD Station + Meta Ads</em></h2>
+
+        <h3>A integração nativa serve para otimizar por venda?</h3>
+        <p>Não completamente. A nativa cobre captura de Lead Ads e sincronização de públicos, não o envio de venda fechada via CAPI. Para otimizar por oportunidade ganha, você precisa de uma automação com webhook, geralmente via Make.</p>
+
+        <h3>Por que usar o Make no meio?</h3>
+        <p>O RD dispara webhooks, mas tem controle limitado sobre o payload e não faz o hash SHA256 exigido pela CAPI. O Make recebe o webhook, normaliza, aplica o hash, monta o payload correto e envia ao Meta — funciona como camada de tradução.</p>
+
+        <h3>Qual evento do RD enviar?</h3>
+        <p>Idealmente "oportunidade ganha". Mas com poucos fechamentos/mês, envie também um evento intermediário de maior frequência (oportunidade qualificada) com valor proporcional à probabilidade de fechamento, para dar volume ao algoritmo.</p>
+
+        <h3>Preciso guardar o fbc no RD?</h3>
+        <p>Sim — é o que mais aumenta o match rate. Capture o fbclid da URL num campo personalizado do lead. Como a venda fecha meses depois, o cookie do navegador já expirou; ter o fbc salvo permite enviá-lo com o evento de venda e amarrar ao clique original.</p>
+
+        <div class="related-posts">
+          <p class="related-label"><strong>Leia também</strong></p>
+          <ul>
+            <li><a href="/blog/meta-capi-configuracao/">Meta CAPI: guia de configuração passo a passo</a></li>
+            <li><a href="/blog/meta-ads-crm-integracao/">Como integrar Meta Ads ao CRM e parar de otimizar por CPL</a></li>
+            <li><a href="/blog/gtm-server-side/">GTM server-side: o que é e por que sua mídia precisa</a></li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <p class="article-cta-label">Próximo passo</p>
+          <h3>Seu RD Station está conectado<br>ao Meta <em>de verdade?</em></h3>
+          <p>Captar lead é metade. A outra metade — enviar a venda de volta para o algoritmo — é o que muda a qualidade da mídia. Se você investe R$ 30k+/mês, vale auditar. Conversa sem compromisso.</p>
+          <a href="https://wa.me/5555920002140" target="_blank" rel="noopener" class="btn-primary">Conversar sobre sua operação <span class="arrow">→</span></a>
+        </div>
+
+        <div class="article-author">
+          <img src="/author-erick.jpg" alt="Erick Maciel" class="author-avatar" width="44" height="44">
+          <div>
+            <p class="author-name">Erick Maciel</p>
+            <p class="author-bio">Consultor de mídia paga com experiência em operações de R$ 700k+/mês. Especialista em integração Ads + CRM e rastreamento de receita real.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon-grid">
+      <div class="colophon-cell">
+        <p class="colophon-label">Razão social</p>
+        <p class="colophon-value">Erick Maciel Marketing LTDA</p>
+        <p class="colophon-value" style="font-size:13px;color:var(--ink-muted);">CNPJ 62.099.457/0001-52</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Endereço</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.5;">Av. Getúlio Vargas, 715, Apto 102<br>Centro · Santo Ângelo / RS<br>CEP 98801-703 · Brasil</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Contato</p>
+        <p class="colophon-value"><a href="mailto:contato@erick2m.com">contato@erick2m.com</a></p>
+        <p class="colophon-value" style="font-size:13px;"><a href="https://wa.me/5555920002140" target="_blank" rel="noopener">WhatsApp +55 (55) 9 2000-2140</a></p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Páginas</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.7;">
+          <a href="/sobre/">Sobre</a><br>
+          <a href="/privacidade/">Privacidade</a><br>
+          <a href="/google-ads/">Google Ads</a><br>
+          <a href="/meta-ads/">Meta Ads</a><br>
+          <a href="/blog/">Blog</a>
+        </p>
+      </div>
+    </div>
+    <p class="colophon-note">© 2026 Erick Maciel Marketing LTDA. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
