@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N7KQK6L');</script>
+<!-- End Google Tag Manager -->
+<title>Meta CAPI: guia de configuração passo a passo — 2M Marketing</title>
+<meta name="description" content="Como configurar a Conversions API do Meta com HubSpot, RD Station ou Salesforce. Token, endpoint, hash de dados e verificação de eventos — passo a passo.">
+<link rel="canonical" href="https://erick2m.com/blog/meta-capi-configuracao/">
+<meta property="og:title" content="Meta CAPI: guia de configuração passo a passo">
+<meta property="og:description" content="Token, endpoint, hash SHA256 e verificação de eventos. O guia técnico de Conversions API do Meta que conecta seu CRM à otimização de campanhas.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://erick2m.com/blog/meta-capi-configuracao/">
+<meta property="og:image" content="https://erick2m.com/og-image.png">
+<meta property="article:published_time" content="2026-06-18">
+<meta property="article:author" content="Erick Maciel">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meta CAPI: guia de configuração passo a passo">
+<meta name="twitter:description" content="O guia técnico de Conversions API do Meta: token, endpoint, hash e verificação de eventos.">
+<meta name="twitter:image" content="https://erick2m.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Meta CAPI: guia de configuração passo a passo",
+  "description": "Como configurar a Conversions API do Meta com HubSpot, RD Station ou Salesforce, do token à verificação de eventos.",
+  "author": { "@type": "Person", "name": "Erick Maciel", "url": "https://erick2m.com" },
+  "publisher": { "@type": "Organization", "name": "2M Marketing", "url": "https://erick2m.com" },
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "url": "https://erick2m.com/blog/meta-capi-configuracao/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://erick2m.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://erick2m.com/blog/" },
+    { "@type": "ListItem", "position": 3, "name": "Meta CAPI: configuração", "item": "https://erick2m.com/blog/meta-capi-configuracao/" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Preciso manter o pixel se já uso a Conversions API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A recomendação da Meta é usar pixel e Conversions API em conjunto, com deduplicação por event_id. O pixel captura o comportamento no navegador (mais rico em contexto de sessão) e a CAPI garante que o evento chegue mesmo quando bloqueadores, iOS ou falhas de rede impedem o pixel de disparar. Rodar os dois em paralelo aumenta o match rate e a cobertura de eventos; usar só um dos dois deixa buracos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é event_id e por que ele importa na CAPI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O event_id é um identificador único que você envia igual tanto no evento do pixel quanto no evento da Conversions API. Quando o Meta recebe dois eventos com o mesmo event_id e o mesmo event_name numa janela de 48 horas, ele entende que são o mesmo evento e conta apenas uma vez. Sem event_id consistente, o mesmo evento é contado em dobro — inflando conversões e distorcendo a otimização."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como o Meta faz o match entre o evento do CRM e o usuário que clicou no anúncio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Meta cruza os parâmetros de user_data que você envia (email, telefone, nome, cidade, e principalmente o fbc/fbp — cookies do clique) contra sua base de usuários. Quanto mais parâmetros válidos você envia e melhor a qualidade deles, maior o match rate. Email e telefone precisam ir em hash SHA256; fbc e fbp vão em texto puro. O parâmetro mais forte é o fbc, capturado do clique original — por isso vale persistir esse dado no CRM desde o primeiro contato."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é um bom valor de EMQ (Event Match Quality)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O EMQ (Event Match Quality) vai de 0 a 10 e mede a qualidade dos dados de correspondência que você envia. Acima de 6 é considerado bom; acima de 8 é excelente. Para chegar lá, envie múltiplos parâmetros de user_data por evento — email, telefone, nome, sobrenome, cidade, estado e, quando possível, fbc e fbp. Cada parâmetro válido adicional sobe o score. EMQ baixo (abaixo de 5) indica que a maioria dos seus eventos não está sendo atribuída, desperdiçando o sinal."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7KQK6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark"><em>2M</em> Marketing</span>
+      <span class="brand-rule"></span>
+      <span class="brand-tagline">Performance & Receita</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Navegação">
+      <a href="/#para-quem">Para quem</a>
+      <a href="/#sistema">Sistema</a>
+      <a href="/#servicos">Serviços</a>
+      <a href="/#cases">Cases</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-header">
+      <a href="/blog/" class="article-back">← Blog</a>
+      <div class="article-meta">
+        <span class="article-tag">Meta Ads · Conversions API · Rastreamento</span>
+        <span class="post-card-sep">·</span>
+        <span class="article-date">Junho 2026</span>
+      </div>
+      <h1 class="article-title">Meta CAPI: guia de <em>configuração passo a passo</em></h1>
+      <p class="article-lead">O pixel sozinho perde entre 20% e 40% dos eventos por conta de bloqueadores, iOS e falhas de rede. A Conversions API recupera esse sinal enviando os eventos do seu servidor — e, no B2B, é ela que leva "venda fechada" do CRM de volta para o algoritmo. Este é o passo a passo técnico.</p>
+    </div>
+
+    <div class="article-body">
+      <div class="article-content">
+
+        <p><strong>A Conversions API (CAPI) do Meta é uma integração server-side que envia eventos de conversão diretamente do seu servidor para o Meta, em paralelo ao pixel. Configurá-la envolve gerar um token no Gerenciador de Eventos, montar o payload com dados de match em hash SHA256 e deduplicar por event_id.</strong> Segundo a documentação oficial da Meta (Business Help Center, 2025), a combinação pixel + CAPI aumenta o número de eventos atribuídos e melhora a estabilidade da otimização frente à perda de dados do navegador.</p>
+
+        <p>Este guia assume que você já entendeu <em>por que</em> conectar mídia ao CRM importa. Se ainda não, vale ler antes <a href="/blog/meta-ads-crm-integracao/">como integrar Meta Ads ao CRM e parar de otimizar por CPL</a> — aqui o foco é o <strong>como</strong>, na camada técnica.</p>
+
+        <h2>O que a CAPI resolve <em>que o pixel não resolve</em></h2>
+
+        <p>O pixel é JavaScript que roda no navegador do usuário. Isso significa que ele depende de três coisas frágeis: o navegador executar o script, o usuário não ter bloqueador, e o sistema operacional não restringir o rastreamento. Cada uma dessas falha com frequência.</p>
+
+        <p>Bloqueadores de anúncios impedem o pixel de carregar. O iOS, desde a versão 14.5, restringe rastreamento entre apps e sites. Redes lentas e abas fechadas cedo cortam eventos pela metade. O resultado é um pixel que reporta menos eventos do que realmente aconteceram — e um algoritmo otimizando com informação incompleta.</p>
+
+        <p>A CAPI resolve isso porque roda no <strong>servidor</strong>, não no navegador. O evento é enviado direto da sua infraestrutura para o Meta, via requisição HTTP. Não há bloqueador que intercepte. Não há iOS que restrinja. E, criticamente para B2B, o servidor pode enviar eventos que <em>não acontecem no site</em> — como um deal marcado como "ganho" no CRM três meses depois do clique.</p>
+
+        <h2>As duas formas de implementar</h2>
+
+        <p>Existem dois caminhos, e a escolha define o resto do trabalho:</p>
+
+        <ol>
+          <li><strong>CAPI via GTM Server-Side:</strong> você monta um container de servidor no Google Tag Manager que recebe os eventos do site e os repassa ao Meta. É a arquitetura mais limpa e escalável, porque centraliza o rastreamento de todas as plataformas num só lugar. Exige um servidor (Cloud Run, Stape ou similar).</li>
+          <li><strong>CAPI direta via webhook:</strong> o próprio CRM (ou uma camada como Make/Zapier) dispara a chamada HTTP para o endpoint da CAPI quando um evento acontece. Mais simples de começar, ideal para o evento de "venda fechada" que nasce no CRM, não no site.</li>
+        </ol>
+
+        <p>Para a maioria das operações B2B, a combinação vencedora é: <strong>GTM Server-Side para os eventos de site</strong> (formulário, pageview) e <strong>webhook do CRM para os eventos de venda</strong>. Este guia cobre a segunda parte — a que fecha o loop de receita. Para a primeira, veja <a href="/blog/gtm-server-side/">o que é GTM server-side</a>.</p>
+
+        <h2>Passo 1: gerar o token de acesso</h2>
+
+        <p>No <strong>Gerenciador de Eventos</strong> do Meta Business Suite, selecione o seu conjunto de dados (dataset/pixel) → <strong>Configurações</strong> → role até <strong>Conversions API</strong> → <strong>Gerar token de acesso</strong>. Copie e guarde esse token em local seguro — ele dá acesso de escrita ao seu dataset e não deve ir para o front-end nem para repositórios públicos.</p>
+
+        <div class="highlight-box">
+          <p><strong>Onde guardar o token</strong></p>
+          <p>Variável de ambiente no servidor, secret manager (Google Secret Manager, AWS Secrets), ou o campo de credencial criptografada da sua ferramenta de automação. Nunca em código versionado, nunca no navegador.</p>
+        </div>
+
+        <h2>Passo 2: montar o payload do evento</h2>
+
+        <p>A CAPI recebe uma requisição <code>POST</code> com um corpo JSON. A estrutura mínima de um evento de compra é esta:</p>
+
+        <div class="highlight-box">
+          <p><strong>Endpoint</strong></p>
+          <p>https://graph.facebook.com/v19.0/{dataset_id}/events?access_token={token}</p>
+          <p><strong>Corpo (campos essenciais)</strong></p>
+          <p>event_name: "Purchase" &middot; event_time: timestamp Unix &middot; event_id: id único &middot; action_source: "system_generated" (para eventos de CRM) &middot; user_data: { em, ph, fn, ln, ct, st, fbc, fbp } &middot; custom_data: { value, currency }</p>
+        </div>
+
+        <p>Três campos merecem atenção porque são onde a maioria das implementações falha:</p>
+
+        <ul>
+          <li><strong>event_id:</strong> precisa ser o mesmo id enviado no pixel para o evento correspondente, para o Meta deduplicar. Se o evento nasce só no servidor (venda de CRM sem equivalente no site), gere um id estável — por exemplo, o id do deal no CRM.</li>
+          <li><strong>action_source:</strong> use <code>"website"</code> para eventos de site e <code>"system_generated"</code> ou <code>"physical_store"</code> para eventos que vêm do CRM ou de vendas offline. Esse campo diz ao Meta a natureza do evento.</li>
+          <li><strong>user_data:</strong> é o que permite o match. Quanto mais parâmetros válidos, maior o EMQ (Event Match Quality). O parâmetro mais poderoso é o <code>fbc</code> — capturado do clique original no anúncio.</li>
+        </ul>
+
+        <h2>Passo 3: normalizar e fazer o hash dos dados</h2>
+
+        <p>Para o Meta cruzar o evento com um usuário, os dados de contato precisam ir em formato padronizado e com hash SHA256. A normalização acontece <em>antes</em> do hash — errar a ordem quebra o match:</p>
+
+        <ul>
+          <li><strong>Email (em):</strong> minúsculas, sem espaços nas pontas → depois SHA256. Ex: <code>joao@empresa.com</code> vira o hash de <code>joao@empresa.com</code>.</li>
+          <li><strong>Telefone (ph):</strong> só dígitos, com código do país, sem símbolos → depois SHA256. Ex: <code>+55 (51) 99999-9999</code> vira o hash de <code>5551999999999</code>.</li>
+          <li><strong>Nome (fn/ln), cidade (ct), estado (st):</strong> minúsculas, sem acento, sem espaço → depois SHA256.</li>
+          <li><strong>fbc e fbp:</strong> vão em <strong>texto puro, sem hash</strong>. São os cookies do clique e da sessão. O fbc tem o formato <code>fb.1.timestamp.fbclid</code>.</li>
+        </ul>
+
+        <blockquote>
+          <p>"O erro mais comum que vejo: enviar email com hash mas telefone com maiúsculas e símbolos. Metade dos parâmetros não bate e o EMQ despenca. Normalizar é chato, mas é o que separa 30% de 70% de match rate."</p>
+        </blockquote>
+
+        <h2>Passo 4: capturar e persistir o fbc</h2>
+
+        <p>Este é o passo que quase ninguém faz — e é o que mais aumenta o match rate no B2B. Quando alguém clica no seu anúncio, a URL de destino recebe um parâmetro <code>fbclid</code>. Esse valor precisa ser capturado no momento do primeiro contato e <strong>salvo no CRM junto com o lead</strong>.</p>
+
+        <p>Por quê? Porque no B2B a venda acontece semanas ou meses depois do clique. Quando você finalmente envia o evento "Purchase" via CAPI, o navegador do usuário já não tem mais o cookie. Se você guardou o fbc no CRM lá no início, consegue enviá-lo agora — e o match com o clique original fica muito mais forte.</p>
+
+        <p>Na prática: configure seu formulário para capturar o <code>fbclid</code> da URL (ou o cookie <code>_fbc</code>) num campo oculto, e mapeie esse campo para uma propriedade do lead no CRM. Todo evento futuro daquele lead pode então carregar o fbc.</p>
+
+        <h2>Passo 5: verificar no Gerenciador de Eventos</h2>
+
+        <p>Depois de enviar os primeiros eventos, vá ao <strong>Gerenciador de Eventos → seu dataset → aba "Visão geral"</strong>. Você deve ver os eventos chegando com a fonte marcada como <strong>"Servidor"</strong>. Cheque três indicadores:</p>
+
+        <ul>
+          <li><strong>Eventos recebidos:</strong> confirmam que o payload está sendo aceito. Erros de formato aparecem aqui com a descrição.</li>
+          <li><strong>Deduplicação:</strong> se você roda pixel + CAPI, deve ver a indicação de que eventos duplicados foram unificados pelo event_id. Se não aparecer, seu event_id está inconsistente.</li>
+          <li><strong>Event Match Quality (EMQ):</strong> a nota de 0 a 10 da qualidade dos dados de match. Mire acima de 6. Abaixo de 5, a maioria dos seus eventos não está sendo atribuída — revise a normalização e adicione mais parâmetros de user_data.</li>
+        </ul>
+
+        <h2>O erro que anula todo o trabalho</h2>
+
+        <p>Configurar a CAPI e não enviar o <code>fbc</code> nem os parâmetros de match suficientes é o equivalente a instalar um cano e não abrir a torneira. Os eventos chegam, o Gerenciador mostra "recebido", tudo parece certo — mas o EMQ está em 3, o Meta não consegue atribuir a maioria dos eventos a usuários reais, e o algoritmo continua otimizando às cegas.</p>
+
+        <p>A CAPI só entrega valor quando o match rate é alto. E o match rate depende inteiramente da qualidade e quantidade dos dados de <code>user_data</code> que você envia em cada evento. Priorize isso acima de qualquer refinamento de arquitetura.</p>
+
+        <h2>Perguntas frequentes sobre <em>Meta CAPI</em></h2>
+
+        <h3>Preciso manter o pixel se já uso a CAPI?</h3>
+        <p>Sim. A recomendação da Meta é rodar os dois em conjunto, com deduplicação por event_id. O pixel traz contexto de sessão; a CAPI garante que o evento chegue mesmo com bloqueador, iOS ou falha de rede. Usar só um deixa buracos de cobertura.</p>
+
+        <h3>O que é event_id e por que importa?</h3>
+        <p>É um identificador único enviado igual no pixel e na CAPI. Quando o Meta recebe dois eventos com o mesmo event_id e event_name em até 48h, conta como um só. Sem event_id consistente, o mesmo evento é contado em dobro — inflando conversões e distorcendo a otimização.</p>
+
+        <h3>Como o Meta faz o match do evento com o usuário?</h3>
+        <p>Cruzando os parâmetros de user_data (email, telefone, nome, cidade e principalmente fbc/fbp) contra a base do Meta. Email e telefone vão em SHA256; fbc e fbp em texto puro. O parâmetro mais forte é o fbc, capturado do clique — por isso vale persisti-lo no CRM desde o primeiro contato.</p>
+
+        <h3>Qual é um bom valor de EMQ?</h3>
+        <p>O EMQ vai de 0 a 10. Acima de 6 é bom, acima de 8 é excelente. Para subir, envie múltiplos parâmetros de user_data por evento — email, telefone, nome, sobrenome, cidade, estado, fbc e fbp. EMQ abaixo de 5 indica que a maioria dos eventos não está sendo atribuída.</p>
+
+        <div class="related-posts">
+          <p class="related-label"><strong>Leia também</strong></p>
+          <ul>
+            <li><a href="/blog/meta-ads-crm-integracao/">Como integrar Meta Ads ao CRM e parar de otimizar por CPL</a></li>
+            <li><a href="/blog/gtm-server-side/">GTM server-side: o que é e por que sua mídia precisa</a></li>
+            <li><a href="/blog/cac-real-midia-paga/">CAC real em mídia paga: por que o número do Ads Manager mente</a></li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <p class="article-cta-label">Próximo passo</p>
+          <h3>Sua CAPI está enviando eventos<br>ou <em>enviando eventos que batem?</em></h3>
+          <p>Ter a CAPI instalada não é o mesmo que ter EMQ alto e match rate que sustenta a otimização. Se você investe R$ 30k+/mês em Meta Ads, vale auditar. Conversa sem compromisso.</p>
+          <a href="https://wa.me/5555920002140" target="_blank" rel="noopener" class="btn-primary">Conversar sobre sua operação <span class="arrow">→</span></a>
+        </div>
+
+        <div class="article-author">
+          <img src="/author-erick.jpg" alt="Erick Maciel" class="author-avatar" width="44" height="44">
+          <div>
+            <p class="author-name">Erick Maciel</p>
+            <p class="author-bio">Consultor de mídia paga com experiência em operações de R$ 700k+/mês. Especialista em integração Ads + CRM e rastreamento de receita real.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon-grid">
+      <div class="colophon-cell">
+        <p class="colophon-label">Razão social</p>
+        <p class="colophon-value">Erick Maciel Marketing LTDA</p>
+        <p class="colophon-value" style="font-size:13px;color:var(--ink-muted);">CNPJ 62.099.457/0001-52</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Endereço</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.5;">Av. Getúlio Vargas, 715, Apto 102<br>Centro · Santo Ângelo / RS<br>CEP 98801-703 · Brasil</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Contato</p>
+        <p class="colophon-value"><a href="mailto:contato@erick2m.com">contato@erick2m.com</a></p>
+        <p class="colophon-value" style="font-size:13px;"><a href="https://wa.me/5555920002140" target="_blank" rel="noopener">WhatsApp +55 (55) 9 2000-2140</a></p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Páginas</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.7;">
+          <a href="/sobre/">Sobre</a><br>
+          <a href="/privacidade/">Privacidade</a><br>
+          <a href="/google-ads/">Google Ads</a><br>
+          <a href="/meta-ads/">Meta Ads</a><br>
+          <a href="/blog/">Blog</a>
+        </p>
+      </div>
+    </div>
+    <p class="colophon-note">© 2026 Erick Maciel Marketing LTDA. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+</body>
+</html>
