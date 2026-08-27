@@ -1,0 +1,61 @@
+name: Scheduled blog publish
+
+# Publica automaticamente os posts agendados em _scheduled/schedule.json
+# quando a data de cada um chega. Roda todo dia às 12:00 UTC (~09:00 BRT);
+# rodar diário garante que um dia perdido seja recuperado no dia seguinte.
+# Também pode ser disparado manualmente pela aba Actions (workflow_dispatch).
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write   # commitar/push do post publicado
+  pages: write      # forçar o rebuild do GitHub Pages
+  id-token: write
+
+concurrency:
+  group: scheduled-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish due posts
+        id: publish
+        run: |
+          OUT=$(python3 scripts/publish_scheduled.py)
+          echo "$OUT"
+          if echo "$OUT" | grep -q "^PUBLISHED "; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "$OUT" | grep "^PUBLISHED " | sed 's/^PUBLISHED /  - /' > /tmp/published.txt
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "2M Scheduler"
+          git config user.email "contato@erick2m.com"
+          git add -A
+          SLUGS=$(sed 's/^  - //' /tmp/published.txt | paste -sd', ' -)
+          git commit -m "chore(blog): publica post(s) agendado(s) — ${SLUGS}"
+          git push
+
+      - name: Force Pages rebuild
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true

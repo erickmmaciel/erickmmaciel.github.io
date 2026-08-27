@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+# Fila de posts agendados — ainda não publicados, não indexar
+Disallow: /_scheduled/
 
 # AI search crawlers — explicitly allowed for citation
 User-agent: GPTBot

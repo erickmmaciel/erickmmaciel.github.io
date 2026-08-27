@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "roas-vs-roi",
+    "date": "2026-08-31",
+    "published": false,
+    "card_tag": "Financeiro · Métricas",
+    "card_title": "ROAS vs. ROI: por que a plataforma<br>mente e o <em>caixa não</em>",
+    "card_desc": "A diferença entre o ROAS que o Ads Manager reporta e o ROI que aparece no caixa — e por que decidir por um leva a operações que parecem lucrativas e não são.",
+    "card_date": "Agosto 2026",
+    "headline": "ROAS vs. ROI: por que a plataforma mente e o caixa não"
+  },
+  {
+    "slug": "trafego-pago-construtora",
+    "date": "2026-09-07",
+    "published": false,
+    "card_tag": "Vertical · Construção",
+    "card_title": "Tráfego pago para construtoras<br>e <em>incorporadoras</em>",
+    "card_desc": "Ciclo longo, ticket alto e o lead que some entre o clique e a escritura. O que muda quando a venda leva meses e passa por corretor.",
+    "card_date": "Setembro 2026",
+    "headline": "Tráfego pago para construtoras e incorporadoras"
+  },
+  {
+    "slug": "linkedin-ads-vale-a-pena",
+    "date": "2026-09-14",
+    "published": false,
+    "card_tag": "LinkedIn Ads · B2B",
+    "card_title": "LinkedIn Ads vale a pena?<br>A conta que <em>ninguém faz</em>",
+    "card_desc": "O clique mais caro do B2B pode ser o mais barato por cliente — ou o maior desperdício. Depende do ticket, do ciclo e de uma conta de payback.",
+    "card_date": "Setembro 2026",
+    "headline": "LinkedIn Ads vale a pena? A conta que ninguém faz"
+  },
+  {
+    "slug": "google-ads-industria-b2b",
+    "date": "2026-09-21",
+    "published": false,
+    "card_tag": "Vertical · Indústria",
+    "card_title": "Google Ads para indústria B2B:<br>ciclo longo, <em>ticket alto</em>",
+    "card_desc": "Baixo volume de busca, ticket alto e comitê de compra. Por que na indústria a intenção vale mais que o volume — e como estruturar a conta.",
+    "card_date": "Setembro 2026",
+    "headline": "Google Ads para indústria B2B: ciclo longo, ticket alto"
+  },
+  {
+    "slug": "ltv-payback-midia-paga",
+    "date": "2026-09-28",
+    "published": false,
+    "card_tag": "Financeiro · Métricas",
+    "card_title": "LTV e payback: quanto<br><em>investir em mídia</em>",
+    "card_desc": "Sem LTV e payback, você não sabe quanto pode pagar por um cliente nem por quanto tempo o caixa aguenta. As métricas que definem o teto do CAC.",
+    "card_date": "Setembro 2026",
+    "headline": "LTV e payback: as métricas que definem quanto investir em mídia"
+  },
+  {
+    "slug": "google-ads-saas",
+    "date": "2026-10-05",
+    "published": false,
+    "card_tag": "Vertical · SaaS",
+    "card_title": "Google Ads para SaaS:<br>do trial ao <em>MRR rastreado</em>",
+    "card_desc": "Otimizar por trial engana, porque nem todo trial paga. O caminho é rastrear do clique ao MRR e otimizar por cliente pagante, não por cadastro.",
+    "card_date": "Outubro 2026",
+    "headline": "Google Ads para SaaS: do trial ao MRR rastreado"
+  },
+  {
+    "slug": "abm-linkedin",
+    "date": "2026-10-12",
+    "published": false,
+    "card_tag": "LinkedIn Ads · ABM",
+    "card_title": "ABM no LinkedIn: segmentar<br>por empresa, <em>não por interesse</em>",
+    "card_desc": "Mirar contas nomeadas específicas em vez de públicos por interesse. Listas de empresas, alcance do comitê de compra e mensuração por conta.",
+    "card_date": "Outubro 2026",
+    "headline": "ABM no LinkedIn: segmentar por empresa, não por interesse"
+  },
+  {
+    "slug": "midia-paga-educacao",
+    "date": "2026-10-19",
+    "published": false,
+    "card_tag": "Vertical · Educação",
+    "card_title": "Mídia paga para educação:<br>matrícula é a <em>métrica</em>",
+    "card_desc": "O lead de curso é abundante e barato, mas matrícula é o que importa. Sazonalidade, jornada emocional e rastreamento até a matrícula paga.",
+    "card_date": "Outubro 2026",
+    "headline": "Mídia paga para educação: matrícula é a métrica, não o lead"
+  }
+]
