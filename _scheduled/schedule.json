@@ -42,7 +42,7 @@
   {
     "slug": "ltv-payback-midia-paga",
     "date": "2026-09-28",
-    "published": false,
+    "published": true,
     "card_tag": "Financeiro · Métricas",
     "card_title": "LTV e payback: quanto<br><em>investir em mídia</em>",
     "card_desc": "Sem LTV e payback, você não sabe quanto pode pagar por um cliente nem por quanto tempo o caixa aguenta. As métricas que definem o teto do CAC.",
