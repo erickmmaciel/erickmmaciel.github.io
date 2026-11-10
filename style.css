@@ -200,13 +200,14 @@ em { font-style: italic; }
 .hero-eyebrow .bullet { color: var(--ink-faint); }
 
 .hero-title {
-  grid-column: 1 / 10;
+  grid-column: 1 / -1;
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(56px, 9.5vw, 144px);
-  line-height: 0.94;
+  font-size: clamp(42px, 6.6vw, 96px);
+  line-height: 0.98;
   letter-spacing: -0.028em;
   margin-top: 24px;
+  max-width: 20ch;
   animation: fadeUp 0.9s 0.15s cubic-bezier(.2,.8,.2,1) backwards;
 }
 .hero-title em {
