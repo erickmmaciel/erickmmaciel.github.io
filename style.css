@@ -244,7 +244,7 @@ em { font-style: italic; }
 }
 
 /* Buttons */
-.btn-primary, .btn-ghost-light {
+.btn-primary, .btn-ghost-light, .btn-ghost {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -283,6 +283,19 @@ em { font-style: italic; }
   font-size: 14px;
 }
 .btn-ghost-light:hover { border-color: var(--paper); background: rgba(242, 237, 227, 0.06); }
+
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost .arrow { display: inline-block; transition: transform 0.32s cubic-bezier(.2,.8,.2,1); font-family: var(--serif); font-size: 18px; }
+.btn-ghost:hover { background: var(--ink); color: var(--paper-glow); }
+.btn-ghost:hover .arrow { transform: translateX(4px); }
+
+/* Bloco da tese */
+.tese { border-top: 1px solid var(--ink); padding: clamp(56px, 9vw, 96px) 0; }
+.tese h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4.6vw, 56px); line-height: 1.05; letter-spacing: -0.022em; max-width: 20ch; }
+.tese h2 em { color: var(--accent); font-style: italic; }
+.tese-text { margin-top: 28px; max-width: 62ch; }
+.tese-text p { font-size: 17px; line-height: 1.7; color: var(--ink-muted); margin-bottom: 14px; }
+.tese-text p strong { color: var(--ink); font-weight: 600; }
 
 /* ============================================
    Sections (shared)
