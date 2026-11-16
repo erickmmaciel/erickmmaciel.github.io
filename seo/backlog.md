@@ -14,7 +14,7 @@ Priorização agora por impressões reais × intenção de compra × distância 
 4. [ ] **/blog/rd-station-meta-ads/** (pos 17.4, 253 impr): mirar "facebook lead ads rd station integration" (75 impr, pos 26) e variações; título/intro.
 5. [x] **CTR na página 1**: cac-real (pos 5, 26 impr, 0 clique) e meta-capi (pos 6, 73 impr, 1,4%): reescrever title+description para ganhar o clique.
 6. [ ] **Gap "connect rate"**: cluster de 5 queries (conect/connect rate, pos 84-99) com impressões e sem página dedicada. Post "o que é connect rate e como calcular" ligado a mídia paga B2B.
-7. [ ] **/meta-ads/ money page** (pos 15.4, só 20 impr) vs. blog de mesmo tema com 455: capturar a versão comercial.
+7. [x] **/meta-ads/ money page** (pos 15.4, só 20 impr) vs. blog de mesmo tema com 455: capturar a versão comercial.
 8. [ ] Página "quanto custa gestão de tráfego pago" (gap comercial).
 9. [ ] Comparação "alternativas à V4 Company" (gap comercial).
 10. [ ] Ferramenta grátis: calculadora de CAC real.
