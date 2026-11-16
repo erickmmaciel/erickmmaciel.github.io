@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N7KQK6L');</script>
+<!-- End Google Tag Manager -->
+<title>Calculadora de CAC real (grátis) — 2M Marketing</title>
+<meta name="description" content="Calculadora grátis de CAC real: descubra o custo por cliente de verdade a partir dos dados do CRM — não do Ads Manager. Sem cadastro. Compare CPL x CAC real.">
+<link rel="canonical" href="https://erick2m.com/ferramentas/calculadora-cac/">
+<meta property="og:title" content="Calculadora de CAC real (grátis) — 2M Marketing">
+<meta property="og:description" content="Descubra o custo por cliente real da sua mídia paga. Sem cadastro. Compare o CPL do Ads Manager com o CAC que aparece no caixa.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://erick2m.com/ferramentas/calculadora-cac/">
+<meta property="og:image" content="https://erick2m.com/og-image.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de CAC real (grátis) — 2M Marketing">
+<meta name="twitter:description" content="Calcule o CAC real da sua mídia paga a partir do CRM. Sem cadastro.">
+<meta name="theme-color" content="#F2EDE3">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de CAC real",
+  "url": "https://erick2m.com/ferramentas/calculadora-cac/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "description": "Calculadora gratuita de CAC real (custo de aquisição de cliente) a partir dos dados do CRM, para operações de mídia paga B2B.",
+  "provider": { "@type": "Organization", "name": "2M Marketing", "url": "https://erick2m.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://erick2m.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Ferramentas", "item": "https://erick2m.com/ferramentas/calculadora-cac/" },
+    { "@type": "ListItem", "position": 3, "name": "Calculadora de CAC real", "item": "https://erick2m.com/ferramentas/calculadora-cac/" }
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/blog.css">
+<style>
+  .calc{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:24px;margin:8px 0 28px;background:rgba(255,255,255,.4)}
+  .calc-field{margin-bottom:16px}
+  .calc-field label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+  .calc-field .hint{font-weight:400;color:#6b6b63;font-size:13px}
+  .calc-field input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 13px;border:1px solid rgba(0,0,0,.2);border-radius:9px;background:#fff}
+  .calc-field input:focus{outline:none;border-color:#111;box-shadow:0 0 0 3px rgba(0,0,0,.08)}
+  .calc-opt{font-size:13px;color:#6b6b63;margin:18px 0 10px;text-transform:uppercase;letter-spacing:.04em}
+  .calc-err{color:#a32d2d;font-size:13px;margin-top:6px;display:none}
+  .calc-btn{font:inherit;font-size:16px;font-weight:600;cursor:pointer;width:100%;padding:13px;border:none;border-radius:9px;background:#111;color:#fff;margin-top:6px}
+  .calc-btn:active{transform:scale(.99)}
+  .calc-out{display:none;margin-top:24px;padding-top:20px;border-top:1px solid rgba(0,0,0,.12)}
+  .calc-hero{font-size:15px;color:#6b6b63;margin:0 0 2px}
+  .calc-hero strong{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:46px;font-weight:400;color:#111;line-height:1.05;margin-top:4px}
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+  .calc-card{background:rgba(0,0,0,.035);border-radius:10px;padding:14px 16px}
+  .calc-card .k{font-size:13px;color:#6b6b63;margin:0 0 4px}
+  .calc-card .v{font-size:22px;font-weight:600;margin:0}
+  .calc-note{margin-top:18px;font-size:15px;line-height:1.6;padding:14px 16px;border-radius:10px;background:#faece7;color:#712b13}
+  @media (max-width:520px){.calc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7KQK6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="container masthead-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark"><em>2M</em> Marketing</span>
+      <span class="brand-rule"></span>
+      <span class="brand-tagline">Performance & Receita</span>
+    </a>
+    <div class="masthead-meta"><span>Rio Grande do Sul · Brasil</span></div>
+    <nav class="masthead-nav" aria-label="Navegação">
+      <a href="/#para-quem">Para quem</a>
+      <a href="/#servicos">Serviços</a>
+      <a href="/#diferenca">Diferença</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="article-header">
+      <a href="/" class="article-back">← Início</a>
+      <div class="article-meta">
+        <span class="article-tag">Ferramenta grátis · CAC</span>
+      </div>
+      <h1 class="article-title">Calculadora de<br>CAC <em>real</em></h1>
+      <p class="article-lead">Calcule o custo real de aquisição de cliente da sua mídia paga a partir dos dados do CRM — não do Ads Manager. Preencha o investimento e os clientes fechados no período e veja o CAC que de fato aparece no caixa. Sem cadastro.</p>
+    </div>
+
+    <div class="article-body">
+      <div class="article-content">
+
+        <form class="calc" id="calc" novalidate>
+          <div class="calc-field">
+            <label for="inv">Investimento em mídia no período <span class="hint">(R$)</span></label>
+            <input type="number" id="inv" inputmode="decimal" min="0" step="any" placeholder="Ex.: 30000">
+          </div>
+          <div class="calc-field">
+            <label for="cli">Clientes fechados no período <span class="hint">(nº, pelo CRM)</span></label>
+            <input type="number" id="cli" inputmode="numeric" min="0" step="1" placeholder="Ex.: 6">
+            <p class="calc-err" id="err">Preencha investimento e ao menos 1 cliente fechado.</p>
+          </div>
+
+          <p class="calc-opt">Opcional — para comparar com o número da plataforma</p>
+          <div class="calc-field">
+            <label for="leads">Leads gerados no período <span class="hint">(nº)</span></label>
+            <input type="number" id="leads" inputmode="numeric" min="0" step="1" placeholder="Ex.: 300">
+          </div>
+          <div class="calc-field">
+            <label for="ticket">Ticket médio por cliente <span class="hint">(R$)</span></label>
+            <input type="number" id="ticket" inputmode="decimal" min="0" step="any" placeholder="Ex.: 8000">
+          </div>
+
+          <button type="submit" class="calc-btn">Calcular CAC real</button>
+        </form>
+
+        <div class="calc-out" id="out" aria-live="polite">
+          <p class="calc-hero">CAC real (custo por cliente fechado)<strong id="cac">—</strong></p>
+          <div class="calc-grid" id="cards"></div>
+          <p class="calc-note" id="note"></p>
+        </div>
+
+        <h2>O que é <em>CAC real</em></h2>
+        <p>O CAC real é o custo total de aquisição de um cliente calculado a partir dos dados do CRM — quantos clientes de fato fecharam —, não a partir do custo por lead ou por formulário que a plataforma reporta. O Ads Manager mostra o custo de uma ação intermediária (o lead); o CAC real mostra o custo do que gera receita (o cliente).</p>
+        <p>Em B2B, a distância entre os dois é enorme: um CPL de R$ 45 pode esconder um CAC de R$ 2.250 quando só uma fração dos leads vira cliente. Decidir budget pelo CPL leva a escalar o canal errado. Entenda o raciocínio completo em <a href="/blog/cac-real-midia-paga/">CAC real em mídia paga: por que o número do Ads Manager mente</a>.</p>
+
+        <h2>Como <em>usar</em></h2>
+        <ol>
+          <li>Pegue o <strong>investimento em mídia</strong> do período (o gasto real da conta).</li>
+          <li>No CRM, conte os <strong>clientes que fecharam</strong> originados desse investimento no mesmo período.</li>
+          <li>Opcional: informe <strong>leads</strong> para ver o CPL que a plataforma reporta, e o <strong>ticket médio</strong> para ver receita e retorno sobre a mídia.</li>
+        </ol>
+        <p>Tudo roda no seu navegador — nenhum dado é enviado ou armazenado.</p>
+
+        <div class="related-posts">
+          <p class="related-label"><strong>Leia também</strong></p>
+          <ul>
+            <li><a href="/blog/cac-real-midia-paga/">CAC real em mídia paga: por que o número do Ads Manager mente</a></li>
+            <li><a href="/blog/ltv-payback-midia-paga/">LTV e payback: as métricas que definem quanto investir</a></li>
+            <li><a href="/precos/">Quanto custa gestão de tráfego pago para B2B</a></li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <p class="article-cta-label">Próximo passo</p>
+          <h3>O seu CAC real<br><em>fecha a conta?</em></h3>
+          <p>Se o custo por cliente real estoura a margem, o problema costuma ser estrutura de conta e rastreamento. Posso auditar sua operação e mostrar onde o budget vaza. Sem compromisso.</p>
+          <a href="https://wa.me/5555920002140?text=Calculei%20meu%20CAC%20real%20e%20quero%20conversar" target="_blank" rel="noopener" class="btn-primary">Conversar sobre sua operação <span class="arrow">→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon-grid">
+      <div class="colophon-cell">
+        <p class="colophon-label">Razão social</p>
+        <p class="colophon-value">Erick Maciel Marketing LTDA</p>
+        <p class="colophon-value" style="font-size:13px;color:var(--ink-muted);">CNPJ 62.099.457/0001-52</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Endereço</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.5;">Av. Getúlio Vargas, 715, Apto 102<br>Centro · Santo Ângelo / RS<br>CEP 98801-703 · Brasil</p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Contato</p>
+        <p class="colophon-value"><a href="mailto:contato@erick2m.com">contato@erick2m.com</a></p>
+        <p class="colophon-value" style="font-size:13px;"><a href="https://wa.me/5555920002140" target="_blank" rel="noopener">WhatsApp +55 (55) 9 2000-2140</a></p>
+      </div>
+      <div class="colophon-cell">
+        <p class="colophon-label">Páginas</p>
+        <p class="colophon-value" style="font-size:14px;line-height:1.7;">
+          <a href="/sobre/">Sobre</a><br>
+          <a href="/precos/">Preços</a><br>
+          <a href="/google-ads/">Google Ads</a><br>
+          <a href="/meta-ads/">Meta Ads</a><br>
+          <a href="/blog/">Blog</a>
+        </p>
+      </div>
+    </div>
+    <p class="colophon-note">© 2026 Erick Maciel Marketing LTDA. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+  var BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 2 });
+  var NUM = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 });
+  var form = document.getElementById('calc');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var inv = parseFloat(document.getElementById('inv').value);
+    var cli = parseInt(document.getElementById('cli').value, 10);
+    var leads = parseFloat(document.getElementById('leads').value);
+    var ticket = parseFloat(document.getElementById('ticket').value);
+    var err = document.getElementById('err');
+    if (!(inv > 0) || !(cli > 0)) {
+      err.style.display = 'block';
+      document.getElementById('out').style.display = 'none';
+      return;
+    }
+    err.style.display = 'none';
+
+    var cac = inv / cli;
+    document.getElementById('cac').textContent = BRL.format(Math.round(cac * 100) / 100);
+
+    var cards = document.getElementById('cards');
+    cards.innerHTML = '';
+    function card(k, v) {
+      cards.insertAdjacentHTML('beforeend',
+        '<div class="calc-card"><p class="k">' + k + '</p><p class="v">' + v + '</p></div>');
+    }
+
+    var note = document.getElementById('note');
+    note.textContent = '';
+    var hasLeads = leads > 0;
+    var hasTicket = ticket > 0;
+
+    if (hasLeads) {
+      var cpl = inv / leads;
+      var taxa = (cli / leads) * 100;
+      card('CPL (o que a plataforma mostra)', BRL.format(Math.round(cpl * 100) / 100));
+      card('Taxa de conversão lead→cliente', NUM.format(taxa) + '%');
+      var mult = cac / cpl;
+      note.textContent = 'O Ads Manager mostraria ' + BRL.format(Math.round(cpl * 100) / 100) +
+        ' por lead. O custo real por cliente é ' + BRL.format(Math.round(cac * 100) / 100) +
+        ' — ' + NUM.format(mult) + 'x maior. É esse número que decide se a mídia se paga.';
+    }
+
+    if (hasTicket) {
+      var receita = cli * ticket;
+      var roas = receita / inv;
+      card('Receita gerada', BRL.format(Math.round(receita * 100) / 100));
+      card('Retorno sobre a mídia (receita ÷ investimento)', NUM.format(roas) + 'x');
+    }
+
+    if (!hasLeads && !hasTicket) {
+      note.textContent = 'Dica: informe os leads do período para comparar com o CPL da plataforma, e o ticket médio para ver o retorno sobre a mídia.';
+    }
+
+    document.getElementById('out').style.display = 'block';
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'calculadora_cac', tool: 'calculadora-cac' });
+  });
+
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href*="wa.me"]');
+    if (!link) return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead',
+      lead_source: 'whatsapp',
+      lead_destination: link.href.replace(/^https?:\/\/wa\.me\//, '').split('?')[0],
+      button_location: 'calculadora-cac',
+      button_text: (link.innerText || '').trim()
+    });
+  });
+</script>
+
+</body>
+</html>
