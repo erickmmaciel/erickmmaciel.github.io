@@ -15,9 +15,9 @@ Priorização agora por impressões reais × intenção de compra × distância 
 5. [x] **CTR na página 1**: cac-real (pos 5, 26 impr, 0 clique) e meta-capi (pos 6, 73 impr, 1,4%): reescrever title+description para ganhar o clique.
 6. [ ] **Gap "connect rate"**: cluster de 5 queries (conect/connect rate, pos 84-99) com impressões e sem página dedicada. Post "o que é connect rate e como calcular" ligado a mídia paga B2B.
 7. [x] **/meta-ads/ money page** (pos 15.4, só 20 impr) vs. blog de mesmo tema com 455: capturar a versão comercial.
-8. [ ] Página "quanto custa gestão de tráfego pago" (gap comercial).
+8. [x] Página "quanto custa gestão de tráfego pago" (gap comercial).
 9. [ ] Comparação "alternativas à V4 Company" (gap comercial).
-10. [ ] Ferramenta grátis: calculadora de CAC real.
+10. [x] Ferramenta grátis: calculadora de CAC real.
 
 ## Próximos (alto valor)
 - [ ] **Página de preço/"quanto custa"** — query comercial `quanto custa gestão de tráfego pago`; hoje é gap. Responde a objeção nº1 e qualifica. (query: quanto custa gestão de tráfego pago)
