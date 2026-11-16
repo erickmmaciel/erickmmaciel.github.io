@@ -9,7 +9,7 @@ Priorização agora por impressões reais × intenção de compra × distância 
 
 ## Próximos (ordenados por retorno)
 1. [x] **Reforçar a money page /google-ads/** (pos 45, **283 impressões**, 0 clique — pior aproveitamento do site, queries 100% comerciais). Expandir conteúdo (hoje é curta vs. o blog que a supera), FAQ com schema, e garantir "consultoria de Google Ads para B2B" em H1/intro/title. (queries: consultoria/agência de google ads b2b)
-2. [ ] **Push página 2→1: /blog/meta-ads-crm-integracao/** (pos 15.3, **455 impressões**, 7 cliques — maior volume do site). Links internos de meta-capi (pos 6) e cac-real (pos 5) para ela; reforçar "integração Meta Ads + CRM"/"meta crm" no corpo. (queries: meta crm, crm meta)
+2. [x] **Push página 2→1: /blog/meta-ads-crm-integracao/** (pos 15.3, **455 impressões**, 7 cliques — maior volume do site). Links internos de meta-capi (pos 6) e cac-real (pos 5) para ela; reforçar "integração Meta Ads + CRM"/"meta crm" no corpo. (queries: meta crm, crm meta)
 3. [ ] **/blog/google-ads-b2b/** (pos 23.5, **185 impressões** só em "google ads b2b"): aproximar da página 1 — responder "google ads b2b" nas 2 primeiras frases, seção comparativa. Links de posts relacionados.
 4. [ ] **/blog/rd-station-meta-ads/** (pos 17.4, 253 impr): mirar "facebook lead ads rd station integration" (75 impr, pos 26) e variações; título/intro.
 5. [ ] **CTR na página 1**: cac-real (pos 5, 26 impr, 0 clique) e meta-capi (pos 6, 73 impr, 1,4%): reescrever title+description para ganhar o clique.

@@ -6,3 +6,4 @@
 - 2026-11-16 — GSC conectado (CSV em seo/gsc/). keyword-map e backlog repriorizados com dados reais.
 - 2026-11-16 — Links internos contextuais: 6 posts do cluster Google Ads → /google-ads/ (âncora "consultoria de Google Ads para B2B"). Alvo: tirar a money page da pos 45.
 - 2026-11-16 — Reforço da money page /google-ads/ (estava pos 45): lead com termo-alvo + Google Partner/R$700k, seção consultoria-vs-agência (query 'agência google ads b2b'), nova FAQ + schema, 4 links internos contextuais no corpo. https://erick2m.com/google-ads/
+- 2026-11-16 — Push pág.2→1 /blog/meta-ads-crm-integracao/ (pos 15, 455 impr): link interno contextual da cac-real (pos 5) → alvo com âncora "integração Meta Ads + CRM"; cluster na alvo ("Conversions API (CAPI)" → guia de CAPI). meta-capi (pos 6) já linkava no corpo.
