@@ -1,31 +1,38 @@
-query,intent,volume_mensal,dificuldade,url_alvo,status,posicao_atual,ultima_checagem
-consultoria google ads b2b,comercial,n/d,n/d,/google-ads/,live,n/d,n/d
-meta ads integração crm,comercial,n/d,n/d,/meta-ads/,live,n/d,n/d
-linkedin ads para b2b,comercial,n/d,n/d,/linkedin-ads/,live,n/d,n/d
-gestão de tráfego pago b2b,comercial,n/d,n/d,/,live,n/d,n/d
-mídia paga conectada ao financeiro,comercial,n/d,n/d,/,live,n/d,n/d
-google ads b2b não gera receita,informacional,n/d,n/d,/blog/google-ads-b2b/,live,n/d,n/d
-como integrar meta ads ao crm,informacional,n/d,n/d,/blog/meta-ads-crm-integracao/,live,n/d,n/d
-cac real mídia paga,informacional,n/d,n/d,/blog/cac-real-midia-paga/,live,n/d,n/d
-meta capi configuração,informacional,n/d,n/d,/blog/meta-capi-configuracao/,live,n/d,n/d
-conversão offline google ads,informacional,n/d,n/d,/blog/conversao-offline-google-ads/,live,n/d,n/d
-gtm server-side,informacional,n/d,n/d,/blog/gtm-server-side/,live,n/d,n/d
-rd station meta ads integração,informacional,n/d,n/d,/blog/rd-station-meta-ads/,live,n/d,n/d
-performance max b2b,informacional,n/d,n/d,/blog/performance-max-b2b/,live,n/d,n/d
-palavras-chave negativas b2b,informacional,n/d,n/d,/blog/palavras-chave-negativas-b2b/,live,n/d,n/d
-roas vs roi,informacional,n/d,n/d,/blog/roas-vs-roi/,live,n/d,n/d
-tráfego pago para construtoras,informacional,n/d,n/d,/blog/trafego-pago-construtora/,live,n/d,n/d
-linkedin ads vale a pena,informacional,n/d,n/d,/blog/linkedin-ads-vale-a-pena/,live,n/d,n/d
-google ads para indústria b2b,informacional,n/d,n/d,/blog/google-ads-industria-b2b/,live,n/d,n/d
-ltv payback mídia paga,informacional,n/d,n/d,/blog/ltv-payback-midia-paga/,live,n/d,n/d
-google ads para saas,informacional,n/d,n/d,/blog/google-ads-saas/,live,n/d,n/d
-abm no linkedin,informacional,n/d,n/d,/blog/abm-linkedin/,live,n/d,n/d
-mídia paga para educação,informacional,n/d,n/d,/blog/midia-paga-educacao/,live,n/d,n/d
-assessoria de tráfego pago para b2b,comercial,n/d,n/d,,gap,n/d,n/d
-agência de tráfego pago vs consultoria,comercial,n/d,n/d,,gap,n/d,n/d
-quanto custa gestão de tráfego pago,comercial,n/d,n/d,,gap,n/d,n/d
-v4 company alternativa,comercial,n/d,n/d,,gap,n/d,n/d
-hubspot integração google ads,informacional,n/d,n/d,,gap,n/d,n/d
-calculadora de cac,ferramenta,n/d,n/d,,gap,n/d,n/d
-tráfego pago para saúde,informacional,n/d,n/d,,gap,n/d,n/d
-tráfego pago para imobiliária b2b,informacional,n/d,n/d,,gap,n/d,n/d
+query,intent,volume_mensal,dificuldade,url_alvo,status,posicao_atual,ultima_checagem,impressoes_90d,cliques_90d
+consultoria de google ads b2b,comercial,n/d,n/d,/google-ads/,live,29.58,2026-11-16,55,0
+consultoria de google ads para empresas b2b,comercial,n/d,n/d,/google-ads/,live,39.26,2026-11-16,46,0
+agência de google ads b2b,comercial,n/d,n/d,/google-ads/,live,57.72,2026-11-16,54,0
+agência de google ads para empresas b2b,comercial,n/d,n/d,/google-ads/,live,73.29,2026-11-16,35,0
+meta ads integração crm,comercial,n/d,n/d,/meta-ads/,live,15.4,2026-11-16,20,0
+linkedin ads para b2b,comercial,n/d,n/d,/linkedin-ads/,live,13.31,2026-11-16,13,0
+consultoria de linkedin ads,comercial,n/d,n/d,/linkedin-ads/,live,15.8,2026-11-16,10,0
+2m marketing,navegacional,n/d,n/d,/,live,5.38,2026-11-16,32,2
+meta crm,informacional,n/d,n/d,/blog/meta-ads-crm-integracao/,live,15.43,2026-11-16,101,7
+crm meta,informacional,n/d,n/d,/blog/meta-ads-crm-integracao/,live,15,2026-11-16,30,0
+meta ads crm,informacional,n/d,n/d,/blog/meta-ads-crm-integracao/,live,10,2026-11-16,1,0
+crm meta ads,informacional,n/d,n/d,/blog/meta-ads-crm-integracao/,live,19,2026-11-16,2,0
+google ads b2b,informacional,n/d,n/d,/blog/google-ads-b2b/,live,23.51,2026-11-16,185,0
+google ads para b2b,informacional,n/d,n/d,/blog/google-ads-b2b/,live,12.75,2026-11-16,4,0
+b2b google ads,informacional,n/d,n/d,/blog/google-ads-b2b/,live,16.5,2026-11-16,2,0
+facebook lead ads rd station integration,informacional,n/d,n/d,/blog/rd-station-meta-ads/,live,26.44,2026-11-16,75,0
+rd station crm facebook ads,informacional,n/d,n/d,/blog/rd-station-meta-ads/,live,30,2026-11-16,2,0
+integrar lead ads com crm,informacional,n/d,n/d,/blog/rd-station-meta-ads/,live,25,2026-11-16,5,0
+gtm server side,informacional,n/d,n/d,/blog/gtm-server-side/,live,40.57,2026-11-16,7,0
+server side gtm,informacional,n/d,n/d,/blog/gtm-server-side/,live,30,2026-11-16,2,0
+performance max,informacional,n/d,n/d,/blog/performance-max-b2b/,live,34.33,2026-11-16,3,0
+conversão offline google ads,informacional,n/d,n/d,/blog/conversao-offline-google-ads/,live,14.29,2026-11-16,1,0
+cac real mídia paga,informacional,n/d,n/d,/blog/cac-real-midia-paga/,live,5.27,2026-11-16,26,0
+palavras-chave negativas b2b,informacional,n/d,n/d,/blog/palavras-chave-negativas-b2b/,live,5.67,2026-11-16,3,0
+google ads para indústria b2b,informacional,n/d,n/d,/blog/google-ads-industria-b2b/,live,9.5,2026-11-16,2,0
+meta capi configuração,informacional,n/d,n/d,/blog/meta-capi-configuracao/,live,6.18,2026-11-16,73,1
+roas vs roi,informacional,n/d,n/d,/blog/roas-vs-roi/,live,24.75,2026-11-16,8,0
+linkedin ads vale a pena,informacional,n/d,n/d,/blog/linkedin-ads-vale-a-pena/,live,11,2026-11-16,2,0
+ltv payback mídia paga,informacional,n/d,n/d,/blog/ltv-payback-midia-paga/,live,n/d,2026-11-16,0,0
+google ads para saas,informacional,n/d,n/d,/blog/google-ads-saas/,live,n/d,2026-11-16,0,0
+abm no linkedin,informacional,n/d,n/d,/blog/abm-linkedin/,live,n/d,2026-11-16,0,0
+mídia paga para educação,informacional,n/d,n/d,/blog/midia-paga-educacao/,live,n/d,2026-11-16,0,0
+assessoria de tráfego pago para b2b,comercial,n/d,n/d,,gap,n/d,2026-11-16,0,0
+quanto custa gestão de tráfego pago,comercial,n/d,n/d,,gap,n/d,2026-11-16,0,0
+v4 company alternativa,comercial,n/d,n/d,,gap,n/d,2026-11-16,0,0
+calculadora de cac,ferramenta,n/d,n/d,,gap,n/d,2026-11-16,0,0
+connect rate o que é,informacional,n/d,n/d,,gap,98,2026-11-16,3,0
