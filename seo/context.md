@@ -23,12 +23,15 @@ Fonte: `llms.txt` (seção "Quem atendemos")
 
 **Não atende:** e-commerce, política/eleições, empresas sem CRM, verba < R$ 30k/mês.
 
-## Serviços (3 produtos)
+## Serviços (3 produtos — ATUAL, fonte: index.html § 03, nov/2026)
 
-Fonte: `llms.txt`, `index.html` (§ ofertas). Preços: "Sob consulta · conforme escopo" (commit e3c0745).
-1. **Diagnóstico** (pontual) — auditoria técnica/estratégica; entrega relatório + plano de ações.
-2. **Consultoria** (projetos) — sessões para destravar canais/tracking/reestruturação/treinamento.
-3. **Assessoria** (recorrente) — gestão completa; relatórios em CAC, LTV, payback, ROI por canal.
+As ofertas foram renomeadas (reposicionamento). Nomes atuais na home:
+1. **Diagnóstico** (pontual) — "para fundamentar uma decisão": analiso a operação e organizo prioridades, para quem já tem quem execute.
+2. **Implementação** (por projeto) — "para conectar a estrutura": estruturo as conexões entre anúncios e processo comercial e preparo a continuidade com o responsável. (Era "Consultoria".)
+3. **Gestão de Receita Rastreável** (recorrente · **oferta principal**) — "para conduzir continuamente": assumo a gestão das campanhas e uso a leitura comercial para orientar as decisões. (Era "Assessoria".)
+
+Preços: "os valores de cada caminho são apresentados na conversa comercial, conforme o escopo" (index.html § 03). Mínimo R$ 30k/mês em mídia (llms.txt).
+⚠️ `llms.txt` ainda usa os nomes antigos (Diagnóstico/Consultoria/Assessoria) — desatualizado; a home manda. Páginas que refletem as ofertas (/precos/, /google-ads/, /meta-ads/, /linkedin-ads/) devem usar os nomes atuais.
 
 ## Páginas de serviço (dinheiro)
 
