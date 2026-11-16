@@ -10,7 +10,7 @@ Priorização agora por impressões reais × intenção de compra × distância 
 ## Próximos (ordenados por retorno)
 1. [x] **Reforçar a money page /google-ads/** (pos 45, **283 impressões**, 0 clique — pior aproveitamento do site, queries 100% comerciais). Expandir conteúdo (hoje é curta vs. o blog que a supera), FAQ com schema, e garantir "consultoria de Google Ads para B2B" em H1/intro/title. (queries: consultoria/agência de google ads b2b)
 2. [x] **Push página 2→1: /blog/meta-ads-crm-integracao/** (pos 15.3, **455 impressões**, 7 cliques — maior volume do site). Links internos de meta-capi (pos 6) e cac-real (pos 5) para ela; reforçar "integração Meta Ads + CRM"/"meta crm" no corpo. (queries: meta crm, crm meta)
-3. [ ] **/blog/google-ads-b2b/** (pos 23.5, **185 impressões** só em "google ads b2b"): aproximar da página 1 — responder "google ads b2b" nas 2 primeiras frases, seção comparativa. Links de posts relacionados.
+3. [~] **/blog/google-ads-b2b/** (pos 23.5, 185 impr): on-page já no teto — title/H1 com termo, lede responde a query, FAQ com schema, linkada pela home (pos 8) + todos os irmãos do cluster. Adicionado link recíproco da money page → pilar. **Próximo mover real = backlinks externos** (outreach/LinkDR), não mais on-page.
 4. [ ] **/blog/rd-station-meta-ads/** (pos 17.4, 253 impr): mirar "facebook lead ads rd station integration" (75 impr, pos 26) e variações; título/intro.
 5. [ ] **CTR na página 1**: cac-real (pos 5, 26 impr, 0 clique) e meta-capi (pos 6, 73 impr, 1,4%): reescrever title+description para ganhar o clique.
 6. [ ] **Gap "connect rate"**: cluster de 5 queries (conect/connect rate, pos 84-99) com impressões e sem página dedicada. Post "o que é connect rate e como calcular" ligado a mídia paga B2B.
