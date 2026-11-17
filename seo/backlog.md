@@ -26,7 +26,7 @@ Priorização agora por impressões reais × intenção de compra × distância 
 - [ ] **Ferramenta grátis: calculadora de CAC real** (clique→venda) — sem login, no repo; imã de links e citações de IA. (query: calculadora de cac)
 - [ ] **Hub de integrações**: HubSpot↔Google Ads, HubSpot↔Meta — queries informacionais do ICP. (query: hubspot integração google ads)
 - [ ] Links internos: cada post de blog deve linkar a página de serviço correspondente com âncora descritiva (checar cobertura).
-- [ ] Páginas de segmento faltantes: saúde, imobiliário B2B (ICP declarado, sem página). (queries: tráfego pago para saúde / imobiliária b2b)
+- [x] Páginas de segmento: SaaS B2B, autopeças, govtech/licitações, incorporadora (2026-11-17)
 
 ## Precisa do dono
 - [x] Conectar Google Search Console — feito (CSV em seo/gsc/).
